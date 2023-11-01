@@ -1,0 +1,46 @@
+<h3>- Defer on button click -</h3>
+
+<div>
+    <button (click)="isClicked.set(true)" >Click on me to load <strong>app-child</strong> component</button>
+</div>
+<br>
+
+@defer (when isClicked()) {
+<app-child/>
+}
+@placeholder {
+<span class='placeholder'>Placeholder</span>
+}
+@error {
+<span class='error'>Error</span>
+}
+@loading(minimum 1s) {
+<span class='loading'>Loading...</span>
+}
+
+<h3>- Defer on hover -</h3>
+
+@defer (on hover) {
+<span class='done'>Hovered</span>
+}
+@placeholder {
+<span class='placeholder'>Hover me!</span>
+}
+
+<h3>- Defer on interaction -</h3>
+
+@defer (on interaction) {
+<span class='done'>Clicked</span>
+}
+@placeholder {
+<span class='placeholder'>Click me!</span>
+}
+
+<h3>- Defer on timer(5s) -</h3>
+
+@defer (on timer(5s)) {
+<span class='done'>I am visible after 5s</span>
+}
+@placeholder {
+<span class='placeholder'>Placeholder</span>
+}
