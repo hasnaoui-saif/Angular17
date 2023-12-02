@@ -1,0 +1,21 @@
+<!--The old way -->
+<ul *ngFor="let task of tasks; trackBy: trackById">
+    <strong>{{task.name}}</strong>
+</ul>
+
+<!-- The new way -->
+<ul>
+    @for (task of tasks; track task.id; let index = $index, first = $first, last = $last, even = $even, odd = $odd,
+    count = $count) {
+    Total count {{count}}
+    <li>
+    <strong>{{task.name}}</strong>
+    - index {{index}}
+    - is it first? {{first}}
+    - is it last? {{last}}
+    - is it even? {{even}}
+    - is it odd? {{odd}}
+    </li>
+    }
+    @empty { <span>Task list is empty</span> }
+</ul>

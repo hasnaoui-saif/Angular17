@@ -1,0 +1,20 @@
+<div>
+    <input [(ngModel)]="isCompleted" type="checkbox" /> Check when you complete the task
+</div>
+<!--The old way -->
+<div *ngIf="isCompleted; else notCompleted">
+    <p>Congratulations! task completed.</p>
+</div>
+
+<ng-template #notCompleted>
+    <p>Ouch! task wasn't completed.</p>
+</ng-template>
+
+<!-- The new way -->
+
+@if (isCompleted) {
+<p>Congratulations! task completed.</p>
+}
+@else {
+<p>Ouch! task wasn't completed.</p>
+}

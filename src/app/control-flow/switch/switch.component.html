@@ -1,0 +1,33 @@
+<div>
+    Choose a fruit
+    <div>
+        <input type="radio" [checked]="fruit === 'apple'" (change)="fruit = 'apple'" id="apple" />
+        <label for="apple">Apple</label>
+    </div>
+    <div>
+        <input type="radio" [checked]="fruit === 'orange'" (change)="fruit = 'orange'" id="orange" />
+        <label for="orange">Orange</label>
+    </div>
+    <div>
+        <input type="radio" [checked]="fruit === 'watermelon'" (change)="fruit = 'watermelon'" id="watermelon" />
+        <label for="watermelon">Watermelon</label>
+    </div>
+</div>
+
+<!--The old way -->
+<div [ngSwitch]="fruit">
+    <span *ngSwitchCase="'apple'">Apple</span>
+    <span *ngSwitchCase="'orange'">Orange</span>
+    <span *ngSwitchCase="'watermelon'">Watermelon</span>
+    <span *ngSwitchDefault>No fruit has been chosen.</span>
+</div>
+
+<!-- The new way -->
+<div>
+    @switch (fruit) {
+    @case ('apple') { <span>Apple</span> }
+    @case ('orange') { <span>Orange</span> }
+    @case ('watermelon') { <span>Watermelon</span> }
+    @default { <span>No fruit has been chosen.</span> }
+    }
+</div>
